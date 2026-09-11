@@ -1,0 +1,1519 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Навстречу к себе — Мария Румянцева</title>
+<meta name="description" content="Мария Румянцева — проводник нового времени. Энергопрактики, трансформационные игры, работа с состоянием. Санкт-Петербург и онлайн.">
+<meta property="og:title" content="Навстречу к себе — Мария Румянцева">
+<meta property="og:description" content="Энергопрактики, трансформационные игры, работа с состоянием — через тело, ум и дух.">
+<meta property="og:image" content="https://soul.topstr.online/photos/1.jpg">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#EEE9E7">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='14' fill='%233E1B37'/%3E%3C/svg%3E">
+<style>img{max-width:100%}[hidden]{display:none!important}</style>
+</head>
+<body>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600&display=swap">
+
+<style>
+/* ============================================================
+   Навстречу к себе — Мария Румянцева
+   Одностраничник, mobile-first. Черновик 2.
+   Палитра «Сумерки»: кремовая база, баклажановые перебивки.
+   ============================================================ */
+
+:root {
+  --ground:      #EEE9E7;
+  --surface:     #F7F3F2;
+  --ink:         #2A2429;
+  --ink-soft:    #6A6068;
+  --ink-faint:   #978D95;
+  --line:        rgba(42, 36, 41, 0.14);
+  --line-soft:   rgba(42, 36, 41, 0.07);
+  --accent:      #4A2140;
+  --accent-deep: #38182F;
+  --accent-tint: rgba(74, 33, 64, 0.09);
+  --on-accent:   #F2EAEF;
+
+  /* перебивка */
+  --band:        #3E1B37;
+  --band-ink:    #F1E8EE;
+  --band-soft:   rgba(241, 232, 238, 0.74);
+  --band-faint:  rgba(241, 232, 238, 0.45);
+  --band-mark:   #CFA6C4;
+  --band-ph:     rgba(241, 232, 238, 0.08);
+
+  --f-display: "Spectral", Georgia, "Times New Roman", serif;
+  --f-ui: "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+  --wrap: 34px;   /* отступ слева под линию-путь */
+  --gutter: 20px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--ground);
+  color: var(--ink);
+  font-family: var(--f-display);
+  font-weight: 300;
+  font-size: 17px;
+  line-height: 1.62;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+p { margin: 0; }
+a { color: inherit; }
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* ---------- линия-путь ---------- */
+
+.path {
+  position: fixed;
+  left: 13px;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: var(--line-soft);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.path__fill {
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 0;
+  background: var(--accent);
+  opacity: 0.55;
+}
+
+.node {
+  position: absolute;
+  left: calc(var(--wrap) * -1 + 13px - 3px);
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--ground);
+  border: 1px solid var(--line);
+  top: 14px;
+  transition: background 0.5s ease, border-color 0.5s ease, transform 0.5s ease;
+}
+
+.is-here .node {
+  background: var(--accent);
+  border-color: var(--accent);
+  transform: scale(1.25);
+}
+
+/* ---------- каркас ---------- */
+
+.shell {
+  max-width: 620px;
+  margin: 0 auto;
+  padding: 0 var(--gutter) 0 var(--wrap);
+  position: relative;
+}
+
+section {
+  position: relative;
+  padding: 46px 0;
+  border-top: 1px solid var(--line-soft);
+}
+
+section:first-of-type { border-top: 0; }
+
+.stack   { display: flex; flex-direction: column; gap: 18px; }
+.stack-s { display: flex; flex-direction: column; gap: 10px; }
+.stack-l { display: flex; flex-direction: column; gap: 30px; }
+
+/* ---------- типографика ---------- */
+
+.eyebrow {
+  font-family: var(--f-ui);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
+h1, h2, h3 {
+  margin: 0;
+  font-weight: 300;
+  text-wrap: balance;
+}
+
+h1 {
+  font-size: clamp(38px, 12vw, 54px);
+  line-height: 1.02;
+  letter-spacing: -0.015em;
+}
+
+h2 {
+  font-size: 27px;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+h3 {
+  font-size: 19px;
+  line-height: 1.3;
+}
+
+.lead { font-size: 18px; line-height: 1.66; }
+.soft { color: var(--ink-soft); }
+
+.small {
+  font-family: var(--f-ui);
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--ink-soft);
+}
+
+em { font-style: italic; font-weight: 300; }
+
+/* ---------- заглушки под фото ---------- */
+
+.ph {
+  position: relative;
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--line-soft);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  text-align: center;
+  padding: 16px;
+  color: var(--ink-faint);
+  overflow: hidden;
+}
+
+.ph::before {
+  content: "";
+  position: absolute;
+  inset: 10px;
+  border: 1px dashed var(--line);
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.ph__n {
+  font-family: var(--f-display);
+  font-size: 26px;
+  font-weight: 300;
+  line-height: 1;
+  color: var(--ink-soft);
+}
+
+.ph__t {
+  font-family: var(--f-ui);
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.ph--oval  { aspect-ratio: 3 / 4; border-radius: 50%; width: 84%; margin: 0 auto; }
+.ph--avatar {
+  width: 92px;
+  flex: 0 0 92px;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  padding: 8px;
+  gap: 2px;
+}
+.ph--avatar::before { inset: 6px; }
+.ph--avatar .ph__n { font-size: 20px; }
+.ph--avatar .ph__t { font-size: 8.5px; letter-spacing: 0.1em; }
+.ph--tall  { aspect-ratio: 4 / 5; }
+.ph--sq    { aspect-ratio: 1 / 1; }
+.ph--wide  { aspect-ratio: 16 / 10; }
+.ph--shot  { aspect-ratio: 4 / 5; }
+
+.band .ph { background: var(--band-ph); border-color: var(--band-faint); color: var(--band-faint); }
+.band .ph::before { border-color: var(--band-faint); }
+.band .ph__n { color: var(--band-soft); }
+
+/* ---------- шапка ---------- */
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: color-mix(in srgb, var(--ground) 88%, transparent);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.3s ease;
+}
+
+.topbar.is-stuck { border-bottom-color: var(--line-soft); }
+
+.topbar__in {
+  max-width: 620px;
+  margin: 0 auto;
+  padding: 11px var(--gutter) 11px var(--wrap);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.wordmark {
+  font-family: var(--f-display);
+  font-size: 15px;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.nav {
+  display: flex;
+  gap: 16px;
+  padding: 0 var(--gutter) 12px var(--wrap);
+  max-width: 620px;
+  margin: 0 auto;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.nav::-webkit-scrollbar { display: none; }
+
+.nav a {
+  font-family: var(--f-ui);
+  font-size: 12.5px;
+  letter-spacing: 0.02em;
+  color: var(--ink-soft);
+  text-decoration: none;
+  white-space: nowrap;
+  padding-bottom: 2px;
+  border-bottom: 1px solid transparent;
+}
+
+.nav a:hover { border-bottom-color: var(--line); }
+
+/* ---------- кнопки ---------- */
+
+.btn {
+  font-family: var(--f-ui);
+  font-size: 14.5px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  border: 1px solid var(--accent);
+  background: var(--accent);
+  color: var(--on-accent);
+  padding: 13px 22px;
+  border-radius: 999px;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 46px;
+  transition: background 0.25s ease, color 0.25s ease, transform 0.15s ease;
+}
+
+.btn:hover { background: var(--accent-deep); border-color: var(--accent-deep); }
+.btn:active { transform: scale(0.985); }
+
+.btn--ghost {
+  background: transparent;
+  color: var(--accent);
+  border-color: var(--line);
+}
+
+.btn--ghost:hover {
+  background: var(--accent-tint);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.btn--sm { font-size: 13px; padding: 9px 16px; min-height: 38px; }
+.btn--wide { width: 100%; }
+
+.btn-row { display: flex; flex-wrap: wrap; gap: 10px; }
+.btn-row .btn { flex: 1 1 auto; }
+
+/* ---------- первый экран ---------- */
+
+.hero { padding: 26px 0 52px; }
+
+.hero__arch { margin-bottom: 30px; }
+
+.hero__title { margin-bottom: 14px; }
+
+.hero__role {
+  font-family: var(--f-ui);
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 26px;
+}
+
+.hero__text { max-width: 34em; }
+
+/* ---------- состояния: слово-якорь + текст ---------- */
+
+.ledger { display: flex; flex-direction: column; gap: 26px; }
+
+.ledger__row {
+  display: grid;
+  grid-template-columns: 92px 1fr;
+  gap: 4px 16px;
+  align-items: start;
+}
+
+.ledger__key {
+  font-family: var(--f-display);
+  font-style: italic;
+  font-size: 22px;
+  line-height: 1.15;
+  color: var(--accent);
+  padding-top: 2px;
+}
+
+.ledger__row p { font-size: 16.5px; }
+
+.ledger__row--wide {
+  grid-template-columns: 1fr;
+  gap: 10px;
+  margin-top: 6px;
+  padding: 22px 20px;
+  background: var(--surface);
+  border-left: 2px solid var(--accent);
+}
+
+.ledger__row--wide .ledger__key { font-size: 26px; }
+
+/* ---------- факты об опыте ---------- */
+
+.facts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px 16px;
+}
+
+.fact__n {
+  font-family: var(--f-display);
+  font-size: 42px;
+  font-weight: 300;
+  line-height: 1;
+  color: var(--accent);
+  letter-spacing: -0.02em;
+}
+
+.fact__l {
+  font-family: var(--f-ui);
+  font-size: 12px;
+  line-height: 1.45;
+  color: var(--ink-soft);
+  margin-top: 6px;
+}
+
+.facts__edu {
+  grid-column: 1 / -1;
+  padding-top: 16px;
+  border-top: 1px solid var(--line-soft);
+  font-size: 15.5px;
+  color: var(--ink-soft);
+}
+
+.hero__what {
+  font-family: var(--f-ui);
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--ink-soft);
+  margin-bottom: 26px;
+  max-width: 30em;
+}
+
+/* ---------- три изменения ---------- */
+
+.shift { display: flex; flex-direction: column; gap: 7px; }
+
+.shift__label {
+  font-family: var(--f-ui);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+/* ---------- услуги ---------- */
+
+.services { display: flex; flex-direction: column; gap: 40px; }
+
+.svc { display: flex; flex-direction: column; gap: 14px; }
+
+.svc__head {
+  display: flex;
+  gap: 14px;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.svc__name { font-size: 21px; line-height: 1.25; }
+
+.svc__price {
+  font-family: var(--f-ui);
+  font-size: 13.5px;
+  font-weight: 600;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+.svc__meta {
+  font-family: var(--f-ui);
+  font-size: 12px;
+  color: var(--ink-faint);
+  margin-top: 3px;
+}
+
+.svc__short { color: var(--ink-soft); }
+
+.svc summary {
+  list-style: none;
+  cursor: pointer;
+  font-family: var(--f-ui);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--accent);
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 2px 0;
+}
+
+.svc summary::-webkit-details-marker { display: none; }
+
+.svc summary .chev {
+  width: 8px;
+  height: 8px;
+  border-right: 1.4px solid currentColor;
+  border-bottom: 1.4px solid currentColor;
+  transform: rotate(45deg) translate(-1px, -1px);
+  transition: transform 0.3s ease;
+}
+
+.svc details[open] summary .chev { transform: rotate(-135deg) translate(-2px, -2px); }
+
+.svc__full {
+  margin-top: 12px;
+  padding: 16px 18px;
+  background: var(--surface);
+  color: var(--ink-soft);
+  font-size: 16.5px;
+  border-left: 2px solid var(--accent-tint);
+}
+
+.gift {
+  display: block;
+  margin-top: 10px;
+  font-family: var(--f-ui);
+  font-size: 12.5px;
+  color: var(--accent);
+}
+
+/* ---------- перебивки ---------- */
+
+.band {
+  background: var(--band);
+  color: var(--band-ink);
+  margin: 0 calc(var(--gutter) * -1) 0 calc(var(--wrap) * -1);
+  padding: 46px var(--gutter) 46px var(--wrap);
+  border-top: 0;
+}
+
+.band + section { border-top: 0; }
+
+.band h2 { color: var(--band-ink); }
+.band .eyebrow { color: var(--band-faint); }
+.band .shift__label { color: var(--band-mark); }
+.band .soft { color: var(--band-soft); }
+
+.band .btn {
+  background: var(--band-ink);
+  border-color: var(--band-ink);
+  color: var(--band);
+}
+
+.band .btn:hover { background: #fff; border-color: #fff; }
+
+.band .node { left: 10px; background: var(--band); border-color: var(--band-faint); }
+.band.is-here .node { background: var(--band-mark); border-color: var(--band-mark); }
+
+.band--quote { padding: 52px var(--gutter) 52px var(--wrap); }
+
+.quote-row { display: flex; flex-wrap: nowrap; align-items: center; gap: 16px; }
+.quote-row > div:first-child { flex: 1 1 auto; min-width: 0; }
+
+.band__quote {
+  margin: 0;
+  font-size: 20px;
+  line-height: 1.4;
+  font-style: italic;
+  font-weight: 300;
+  text-wrap: balance;
+  max-width: 20em;
+}
+
+.band__sign {
+  margin-top: 18px;
+  font-family: var(--f-ui);
+  font-size: 11.5px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--band-mark);
+}
+
+.band--verbs { padding: 48px var(--gutter) 48px var(--wrap); }
+
+.verbs {
+  margin-top: 14px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px 18px;
+}
+
+.verb {
+  padding: 12px 0 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-height: 118px;
+}
+
+.verb:nth-child(2n) { padding-top: 34px; }
+
+.verb__w {
+  font-family: var(--f-display);
+  font-size: clamp(21px, 6.2vw, 27px);
+  font-weight: 300;
+  line-height: 1.05;
+  color: var(--band-ink);
+  letter-spacing: -0.01em;
+}
+
+.verb__c {
+  font-family: var(--f-ui);
+  font-size: 11.5px;
+  line-height: 1.45;
+  color: var(--band-soft);
+}
+
+/* ---------- метод «Точка выбора» внутри сопровождения ---------- */
+
+.method {
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line-soft);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.method__t {
+  font-family: var(--f-ui);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.method__s {
+  font-size: 18px;
+  line-height: 1.35;
+  color: var(--ink);
+  font-style: italic;
+}
+
+.chain {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 4px;
+  font-family: var(--f-ui);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--ink);
+  margin: 4px 0;
+}
+
+.chain span {
+  position: relative;
+  padding: 5px 10px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--ground);
+}
+
+.chain span:not(:last-child) { margin-right: 16px; }
+
+.chain span:not(:last-child)::after {
+  content: "→";
+  position: absolute;
+  right: -15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--ink-faint);
+}
+
+/* ---------- отзывы ---------- */
+
+.reviews { display: flex; flex-direction: column; gap: 26px; }
+
+.review {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-bottom: 26px;
+  border-bottom: 1px solid var(--line-soft);
+}
+
+.review:last-child { border-bottom: 0; padding-bottom: 0; }
+
+.review__text {
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--ink-soft);
+  font-style: italic;
+}
+
+.review__who {
+  font-family: var(--f-ui);
+  font-size: 12px;
+  color: var(--ink-faint);
+}
+
+/* ---------- контакты ---------- */
+
+.channels { display: flex; flex-direction: column; gap: 9px; }
+
+.channel {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  padding: 14px 16px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--surface);
+  font-family: var(--f-ui);
+  font-size: 15px;
+  font-weight: 500;
+  text-decoration: none;
+  color: var(--ink);
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+  transition: border-color 0.2s ease;
+}
+
+.channel:hover { border-color: var(--accent); }
+.channel svg { flex: 0 0 auto; }
+
+.channel__sub {
+  display: block;
+  font-size: 11.5px;
+  font-weight: 400;
+  color: var(--ink-faint);
+  margin-top: 1px;
+}
+
+/* компактный ряд контактов на странице */
+.contact-row { display: flex; gap: 10px; }
+
+.contact-row .channel {
+  flex: 1 1 0;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 8px;
+  padding: 16px 8px;
+  font-size: 13px;
+}
+
+.contact-row .channel__sub { display: none; }
+
+/* ---------- футер ---------- */
+
+footer {
+  padding: 44px 0 40px;
+  border-top: 1px solid var(--line-soft);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.copyright { font-family: var(--f-ui); font-size: 12px; color: var(--ink-faint); }
+
+.disclaimer {
+  font-family: var(--f-ui);
+  font-size: 11.5px;
+  line-height: 1.5;
+  color: var(--ink-faint);
+  max-width: 42em;
+}
+
+/* ---------- нижняя панель ---------- */
+
+.dock {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 30;
+  padding: 10px var(--gutter) calc(10px + env(safe-area-inset-bottom));
+  background: color-mix(in srgb, var(--ground) 92%, transparent);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-top: 1px solid var(--line-soft);
+  transform: translateY(120%);
+  transition: transform 0.35s ease;
+}
+
+.dock.is-up { transform: translateY(0); }
+.dock__in { max-width: 620px; margin: 0 auto; }
+
+/* ---------- шторка ---------- */
+
+.sheet {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.sheet__scrim {
+  position: absolute;
+  inset: 0;
+  background: rgba(24, 18, 22, 0.46);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.sheet.is-open .sheet__scrim { opacity: 1; }
+
+.sheet__panel {
+  position: relative;
+  width: 100%;
+  max-width: 620px;
+  max-height: 88vh;
+  overflow-y: auto;
+  background: var(--ground);
+  border-radius: 22px 22px 0 0;
+  padding: 10px 20px calc(26px + env(safe-area-inset-bottom));
+  transform: translateY(100%);
+  transition: transform 0.34s cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+.sheet.is-open .sheet__panel { transform: translateY(0); }
+
+.sheet__grip {
+  width: 38px;
+  height: 4px;
+  border-radius: 999px;
+  background: var(--line);
+  margin: 0 auto 16px;
+}
+
+.sheet__title { font-size: 22px; line-height: 1.25; margin-bottom: 4px; }
+
+.sheet__note {
+  font-family: var(--f-ui);
+  font-size: 12.5px;
+  line-height: 1.5;
+  color: var(--ink-soft);
+  margin-top: 16px;
+}
+
+.pick {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  width: 100%;
+  text-align: left;
+  padding: 14px 0;
+  background: none;
+  border: 0;
+  border-bottom: 1px solid var(--line-soft);
+  cursor: pointer;
+  color: inherit;
+  font: inherit;
+}
+
+.pick:last-of-type { border-bottom: 0; }
+.pick__name { font-size: 17px; line-height: 1.3; }
+
+.pick__price {
+  font-family: var(--f-ui);
+  font-size: 12.5px;
+  color: var(--ink-faint);
+  font-variant-numeric: tabular-nums;
+  margin-top: 2px;
+}
+
+.pick__cta {
+  font-family: var(--f-ui);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--accent);
+  white-space: nowrap;
+}
+
+.sheet__back {
+  background: none;
+  border: 0;
+  padding: 10px 0;
+  margin-top: 6px;
+  font-family: var(--f-ui);
+  font-size: 13px;
+  color: var(--ink-soft);
+  cursor: pointer;
+}
+
+.msg-preview {
+  margin-top: 14px;
+  padding: 13px 15px;
+  background: var(--surface);
+  border: 1px solid var(--line-soft);
+  border-radius: 12px;
+  font-size: 15.5px;
+  color: var(--ink-soft);
+  font-style: italic;
+}
+
+/* ---------- появление секций ---------- */
+
+.reveal { transition: opacity 0.7s ease, transform 0.7s ease; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .reveal.is-hidden { opacity: 0.55; transform: translateY(10px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+}
+
+@media (min-width: 560px) {
+  body { font-size: 18px; }
+  .hero { padding: 44px 0 64px; }
+  section { padding: 58px 0; }
+  .ph--oval { width: 54%; }
+}
+
+/* ---------- вставленные фото ---------- */
+
+.photo { position: relative; width: 100%; overflow: hidden; background: var(--surface); }
+.photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.photo--oval { aspect-ratio: 3 / 4; border-radius: 50%; width: 84%; margin: 0 auto; }
+.photo--oval img { object-position: center 100%; }
+.photo--tall { aspect-ratio: 4 / 5; }
+.photo--wide { aspect-ratio: 16 / 10; }
+.photo--sq { aspect-ratio: 1 / 1; }
+.photo--sq img { object-position: center 60%; }
+.photo--p5 { aspect-ratio: 4 / 5; }
+.photo--p5 img { object-position: center 88%; }
+.photo--avatar { width: 124px; flex: 0 0 124px; aspect-ratio: 1 / 1; border-radius: 50%; }
+.photo--avatar img { object-position: center 42%; transform: scale(1.7); transform-origin: 50% 40%; }
+
+.photo__tag {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-family: var(--f-ui);
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink);
+  background: color-mix(in srgb, var(--ground) 90%, transparent);
+  padding: 5px 9px;
+  border-radius: 999px;
+}
+
+.variants { display: flex; flex-direction: column; gap: 14px; }
+
+@media (min-width: 560px) {
+  .photo--oval { width: 54%; }
+}
+</style>
+
+<div class="path" aria-hidden="true"><div class="path__fill" id="pathFill"></div></div>
+
+<header class="topbar" id="topbar">
+  <div class="topbar__in">
+    <a class="wordmark" href="#top">Навстречу к себе</a>
+    <button class="btn btn--sm" data-open="services">Записаться</button>
+  </div>
+  <nav class="nav">
+    <a href="#about">Обо мне</a>
+    <a href="#services">Услуги</a>
+    <a href="#book">Диагностика</a>
+    <a href="#reviews">Отзывы</a>
+    <a href="#contacts">Контакты</a>
+  </nav>
+</header>
+
+<main class="shell" id="top">
+
+  <section class="hero reveal">
+    <span class="node" aria-hidden="true"></span>
+    <div class="photo photo--oval hero__arch"><img src="/photos/1.jpg" alt="Мария Румянцева"></div>
+    <h1 class="hero__title">Навстречу<br>к себе</h1>
+    <p class="hero__role" style="margin-bottom:10px">Проводник нового времени</p>
+    <p class="hero__what">Энергопрактики, трансформационные игры, работа с состоянием — через тело, ум и дух</p>
+    <div class="stack">
+      <p class="lead hero__text">Ты в правильном месте, если чувствуешь, что внутри зреет что-то важное. Если устала искать ответы снаружи и хочешь вернуться к себе. Если готова к переменам — не через борьбу, а через доверие.</p>
+      <div class="btn-row">
+        <button class="btn btn--ghost" data-open="echo">Чувствую отклик</button>
+        <button class="btn" data-open="services">Записаться</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="reveal">
+    <span class="node" aria-hidden="true"></span>
+    <div class="stack-l">
+      <div class="stack">
+        <p class="eyebrow">Обо мне</p>
+        <h2>Я перестала искать тепло снаружи. Я стала им</h2>
+      </div>
+
+      <div class="variants"><div class="photo photo--tall"><img src="/photos/2.jpg" alt="Мария Румянцева"></div></div>
+
+      <div class="stack">
+        <p>Когда-то я тоже зависала в тревоге, искала опору в найме, в отношениях, в веществах. Пока не случилась встреча с собой.</p>
+        <p>Сегодня я — любящий наблюдатель. Через меня проходит информация, яснознание, свет. Я не веду тебя — я иду рядом.</p>
+        <p>В моей проводимости нет меня. Есть только безусловная любовь и свет, которые я пропускаю насквозь.</p>
+      </div>
+
+      <div class="facts">
+        <div><p class="fact__n">7 лет</p><p class="fact__l">в практиках</p></div>
+        <div><p class="fact__n">100+</p><p class="fact__l">проведённых трансформационных игр</p></div>
+        <p class="facts__edu">Проводник Лилы — обучалась у Валерии Тогоревой. Прошла курс «Проводники нового времени» Анны Magic Soul. Учусь в Московском институте психоанализа.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="band band--quote reveal">
+    <span class="node" aria-hidden="true"></span>
+    <div class="quote-row">
+      <div>
+        <blockquote class="band__quote">«В моей проводимости нет меня. Я лишь перевожу это через чистый фильтр любви и света»</blockquote>
+        <p class="band__sign">Мария Румянцева</p>
+      </div>
+      <div class="photo photo--avatar"><img src="/photos/3.jpg" alt="Мария Румянцева"></div>
+    </div>
+  </section>
+
+  <section class="reveal">
+    <span class="node" aria-hidden="true"></span>
+    <div class="stack-l">
+      <div class="stack">
+        <p class="eyebrow">Кому это откликнется</p>
+        <h2>Узнаёшь себя?</h2>
+      </div>
+      <div class="ledger">
+        <div class="ledger__row">
+          <span class="ledger__key">Путь</span>
+          <p>Идёшь не по своему пути, но боишься свернуть.</p>
+        </div>
+        <div class="ledger__row">
+          <span class="ledger__key">Роль</span>
+          <p>Устала играть роль «удобного человека» и говорить «да», когда хочется сказать «нет».</p>
+        </div>
+        <div class="ledger__row">
+          <span class="ledger__key">Опора</span>
+          <p>Ищешь внутреннюю опору, потому что внешняя — деньги, партнёр, статус — шатается.</p>
+        </div>
+        <div class="ledger__row">
+          <span class="ledger__key">Доверие</span>
+          <p>Больше не хочешь жить в тревоге и страхе. Хочешь доверять жизни.</p>
+        </div>
+        <div class="ledger__row">
+          <span class="ledger__key">Импульс</span>
+          <p>Внутри есть тихий, но настойчивый импульс: «Хватит. Пора к себе».</p>
+        </div>
+      </div>
+
+      <div class="photo photo--wide"><img src="/photos/4.jpg" alt="Мария Румянцева"></div>
+
+      <div class="ledger">
+        <div class="ledger__row ledger__row--wide">
+          <span class="ledger__key">И особенно — тишина</span>
+          <p class="soft">Если тебе страшно оставаться в тишине. Если ты привыкла заглушать себя фоновым шумом, людьми, делами, потому что в одиночестве становится невыносимо. Я учу создавать внутри себя такое пространство, где тебе хорошо, даже когда ты одна. Где тишина — не враг, а друг. Где ты находишь себя, а не убегаешь от себя.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band band--verbs reveal">
+    <span class="node" aria-hidden="true"></span>
+    <div class="stack">
+      <p class="eyebrow">Что я делаю</p>
+      <h2>В этом пространстве я</h2>
+      <div class="verbs">
+        <div class="verb"><span class="verb__w">Пробуждаю</span><span class="verb__c">творца своей реальности</span></div>
+        <div class="verb"><span class="verb__w">Возвращаю</span><span class="verb__c">на истинный путь своей души</span></div>
+        <div class="verb"><span class="verb__w">Распутываю</span><span class="verb__c">узлы страхов, обид, долженствований</span></div>
+        <div class="verb"><span class="verb__w">Соединяю</span><span class="verb__c">с собой настоящей</span></div>
+        <div class="verb"><span class="verb__w">Заземляю</span><span class="verb__c">в теле, в моменте «здесь и сейчас»</span></div>
+        <div class="verb"><span class="verb__w">Легализую</span><span class="verb__c">право быть собой — без оглядки на чужие мнения</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="reveal">
+    <span class="node" aria-hidden="true"></span>
+    <div class="stack-l">
+      <div class="stack">
+        <p>Я помогаю человеку соединиться с самим собой. Не с идеальным — с настоящим.</p>
+        <p>Так трансформируется мышление, энергия, тело и вся жизнь.</p>
+      </div>
+      <div class="photo photo--p5"><img src="/photos/5.jpg" alt="Мария Румянцева"></div>
+    </div>
+  </section>
+
+  <section class="reveal">
+    <span class="node" aria-hidden="true"></span>
+    <div class="stack-l">
+      <p class="eyebrow">Что изменится</p>
+
+      <div class="shift">
+        <p class="shift__label">Внутри</p>
+        <p>Рождается непоколебимая любовь, которая ни от чего не зависит. Уходят страхи, осуждение, даже страх смерти и одиночества. Приходит доверие к жизни. И тишина перестаёт пугать — она становится домом.</p>
+      </div>
+
+      <div class="shift">
+        <p class="shift__label">В теле</p>
+        <p>Уходит напряжение. Ты начинаешь слышать себя: когда отдохнуть, что поесть. Исчезает потребность «заедать» или «запивать» стресс.</p>
+      </div>
+
+      <div class="shift">
+        <p class="shift__label">В реальности</p>
+        <p>Мир начинает откликаться иначе. Конфликты уходят, приходят новые люди и возможности. Появляется смелость проявляться — в соцсетях, в разговорах, в выборе. Приходит импульс к реальным действиям — не «надо» и не «для галочки», а тем, от которых душа радуется.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="services" class="reveal">
+    <span class="node" aria-hidden="true"></span>
+    <div class="stack-l">
+      <div class="stack">
+        <p class="eyebrow">Услуги</p>
+        <h2>Выбирай то, что откликается</h2>
+      </div>
+
+      <div class="services">
+
+        <article class="svc">
+          <div class="ph ph--sq"><span class="ph__n">6</span><span class="ph__t">Фото · распаковка</span></div>
+          <div class="svc__head">
+            <div>
+              <h3 class="svc__name">Распаковка текущей точки</h3>
+              <p class="svc__meta">1,5–2 часа · лично в Петербурге</p>
+            </div>
+            <p class="svc__price">10 000 ₽</p>
+          </div>
+          <p class="svc__short">Встреча, которая снимает туман.</p>
+          <details>
+            <summary><span class="chev" aria-hidden="true"></span>Раскрыть пространство</summary>
+            <p class="svc__full">Смотрим, где ты сейчас, почему топчешься на месте и куда тебе идти. Без воды. Без «копания» в прошлом. Только точка здесь и сейчас. Я отражаю то, что вижу, и даю вектор. Ты уходишь с ясностью.</p>
+          </details>
+        </article>
+
+        <article class="svc">
+          <div class="ph ph--sq"><span class="ph__n">7</span><span class="ph__t">Фото · Лила</span></div>
+          <div class="svc__head">
+            <div>
+              <h3 class="svc__name">Лила — древняя игра судьбы</h3>
+              <p class="svc__meta">Одна игра до завершения · лично в Петербурге или онлайн</p>
+            </div>
+            <p class="svc__price">15 000 ₽</p>
+          </div>
+          <p class="svc__short">Зеркало твоих сценариев.</p>
+          <details>
+            <summary><span class="chev" aria-hidden="true"></span>Раскрыть пространство</summary>
+            <p class="svc__full">Ты входишь с запросом. Игра становится зеркалом, показывая повторяющиеся сценарии, блоки и зажимы. Если ты не в ресурсе — игра не пустит. Она честна и глубока. Помогает понять, почему одно и то же повторяется в твоей жизни, и даёт направление, куда двигаться дальше.</p>
+          </details>
+        </article>
+
+        <article class="svc">
+          <div class="ph ph--sq"><span class="ph__n">8</span><span class="ph__t">Фото · Путь к осознанию</span></div>
+          <div class="svc__head">
+            <div>
+              <h3 class="svc__name">Игра-просветление «Путь к осознанию»</h3>
+              <p class="svc__meta">Одна игра до завершения · авторская · лично в Петербурге</p>
+            </div>
+            <p class="svc__price">15 000 ₽</p>
+          </div>
+          <p class="svc__short">Путешествие от тьмы к свету, от ума к сердцу.</p>
+          <details>
+            <summary><span class="chev" aria-hidden="true"></span>Раскрыть пространство</summary>
+            <p class="svc__full">Путь из семи шагов: от входа в тишину — к истинному запросу сердца и освобождению от страхов и блоков. Новое состояние закрепляется, и ты создаёшь личный якорь новой версии себя. Это глубокая, живая трансформация.</p>
+          </details>
+        </article>
+
+        <article class="svc">
+          <div class="ph ph--sq"><span class="ph__n">9</span><span class="ph__t">Фото · группа</span></div>
+          <div class="svc__head">
+            <div>
+              <h3 class="svc__name">Сопровождение — групповое</h3>
+              <p class="svc__meta">Месяц · Петербург</p>
+            </div>
+            <p class="svc__price">35 000 ₽</p>
+          </div>
+          <p class="svc__short">Поддержка в потоке.</p>
+          <details>
+            <summary><span class="chev" aria-hidden="true"></span>Раскрыть пространство</summary>
+            <div class="svc__full">
+              <p>Созвоны раз в неделю. Общий чат с участниками. Ты можешь написать в любой момент, когда сбиваешься — я отвечаю голосовым сообщением или текстом. Также я записываю подкасты и отвечаю на общие вопросы группы. Это поле поддержки, где ты не одна на своём пути.</p>
+              <div class="method">
+                <p class="method__t">В сопровождении работаем с методом «Точка выбора»</p>
+                <p class="method__s">Как перестать жить на автомате и вернуть себе управление состоянием</p>
+                <p class="chain"><span>событие</span><span>мысль</span><span>эмоция</span><span>напряжение в теле</span><span>импульс</span><span>действие</span></p>
+                <p>Ты учишься замечать момент, когда внешний мир и собственные мысли начинают управлять твоим состоянием, — возвращаться в себя и выбирать реакцию вместо автоматического действия. Инструмент — простой дневник из шести вопросов: что произошло, что я подумала, что почувствовала, где это в теле, что захотелось сделать и сделала ли я это на автомате.</p>
+              </div>
+              <span class="gift">В подарок — моя авторская медитация</span>
+            </div>
+          </details>
+        </article>
+
+        <article class="svc">
+          <div class="ph ph--sq"><span class="ph__n">10</span><span class="ph__t">Фото · индивидуально</span></div>
+          <div class="svc__head">
+            <div>
+              <h3 class="svc__name">Сопровождение — индивидуальное</h3>
+              <p class="svc__meta">Месяц · Петербург</p>
+            </div>
+            <p class="svc__price">50 000 ₽</p>
+          </div>
+          <p class="svc__short">Глубокая личная работа.</p>
+          <details>
+            <summary><span class="chev" aria-hidden="true"></span>Раскрыть пространство</summary>
+            <div class="svc__full">
+              <p>Личные созвоны раз в неделю. Поддержка в чате семь дней в неделю — пишешь в любой момент, я отвечаю. Индивидуальные техники, медитации, работа с состоянием под твой запрос. Это максимальная глубина и внимание к твоему пути.</p>
+              <div class="method">
+                <p class="method__t">В сопровождении работаем с методом «Точка выбора»</p>
+                <p class="method__s">Как перестать жить на автомате и вернуть себе управление состоянием</p>
+                <p class="chain"><span>событие</span><span>мысль</span><span>эмоция</span><span>напряжение в теле</span><span>импульс</span><span>действие</span></p>
+                <p>Ты учишься замечать момент, когда внешний мир и собственные мысли начинают управлять твоим состоянием, — возвращаться в себя и выбирать реакцию вместо автоматического действия. Инструмент — простой дневник из шести вопросов: что произошло, что я подумала, что почувствовала, где это в теле, что захотелось сделать и сделала ли я это на автомате.</p>
+              </div>
+              <span class="gift">В подарок — моя авторская медитация</span>
+            </div>
+          </details>
+        </article>
+
+        <article class="svc">
+          <div class="ph ph--wide"><span class="ph__n">11</span><span class="ph__t">Обложка гайда</span></div>
+          <div class="svc__head">
+            <div>
+              <h3 class="svc__name">Гайд «Работа с состоянием и энергией»</h3>
+              <p class="svc__meta">При записи на любую платную услугу</p>
+            </div>
+            <p class="svc__price">В подарок</p>
+          </div>
+          <p class="svc__short">Твой личный спутник на пути к себе.</p>
+          <details>
+            <summary><span class="chev" aria-hidden="true"></span>Раскрыть пространство</summary>
+            <p class="svc__full">Практическое руководство с простыми, но глубокими упражнениями для восстановления контакта с телом, чувствами и внутренним голосом. Ты получаешь его в подарок при выборе любой платной услуги.</p>
+          </details>
+        </article>
+
+      </div>
+
+      <p class="soft">Если ты чувствуешь, что это не твоё — не бери. Только искренний выбор ведёт к настоящей трансформации.</p>
+
+      <button class="btn btn--wide" data-open="services">Записаться</button>
+    </div>
+  </section>
+
+  <section id="book" class="band reveal">
+    <span class="node" aria-hidden="true"></span>
+    <div class="stack-l">
+      <div class="stack">
+        <p class="eyebrow">Диагностика</p>
+        <h2>Первый шаг — бесплатная диагностика</h2>
+        <p class="soft">Прежде чем мы начнём полноценную работу, я предлагаю встретиться в пространстве тишины и внимания.</p>
+      </div>
+
+      <div class="ph ph--wide"><span class="ph__n">12</span><span class="ph__t">Фото · горизонтальное</span></div>
+
+      <div class="shift">
+        <p class="shift__label">Что это</p>
+        <p class="soft">15-минутная онлайн-диагностика, где я посмотрю на твою текущую точку. Без решений. Без техник. Просто увижу тебя и отражу то, что вижу.</p>
+      </div>
+
+      <div class="shift">
+        <p class="shift__label">Зачем</p>
+        <p class="soft">Чтобы ты поняла: подходит ли тебе моя энергия, резонируем ли мы. Чтобы я поняла: могу ли я тебе помочь.</p>
+      </div>
+
+      <p><em>Это бесплатно. Это честно. Это по сердцу.</em></p>
+
+      <div class="stack-s">
+        <button class="btn btn--wide" data-open="meet">Хочу, чтобы меня увидели</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="reviews" class="reveal">
+    <span class="node" aria-hidden="true"></span>
+    <div class="stack-l">
+      <div class="stack">
+        <p class="eyebrow">Отзывы</p>
+        <h2>Что говорят те, кто уже прошёл</h2>
+      </div>
+
+      <div class="reviews">
+        <div class="review">
+          <div class="ph ph--shot"><span class="ph__n">13</span><span class="ph__t">Скриншот отзыва</span></div>
+          <p class="review__text">Здесь будет текст отзыва — пара живых фраз из переписки, как есть, без причёсывания.</p>
+          <p class="review__who">Имя · услуга</p>
+        </div>
+        <div class="review">
+          <div class="ph ph--shot"><span class="ph__n">14</span><span class="ph__t">Скриншот отзыва</span></div>
+          <p class="review__text">Здесь будет текст отзыва.</p>
+          <p class="review__who">Имя · услуга</p>
+        </div>
+        <div class="review">
+          <div class="ph ph--shot"><span class="ph__n">15</span><span class="ph__t">Скриншот отзыва</span></div>
+          <p class="review__text">Здесь будет текст отзыва.</p>
+          <p class="review__who">Имя · услуга</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contacts" class="reveal">
+    <span class="node" aria-hidden="true"></span>
+    <div class="stack-l">
+      <div class="stack">
+        <p class="eyebrow">Контакты</p>
+        <h2>Если внутри отозвалось — значит, пришло время для разговора</h2>
+        <p class="soft">Напиши мне в удобном мессенджере. Отвечаю я сама — не ассистент и не бот.</p>
+      </div>
+
+      <div class="contact-row" id="contactChannels"></div>
+
+      <p class="small">Я не всегда отвечаю мгновенно. Я берегу энергию для живого контакта — так наши диалоги глубже.</p>
+    </div>
+  </section>
+
+  <footer>
+    <div class="stack">
+      <p class="lead">Благодарю, что нашла время побыть с собой на этой странице.</p>
+      <p class="soft">Это уже твой шаг к себе.</p>
+    </div>
+    <div class="stack-s">
+      <p class="copyright">© Навстречу к себе · Мария Румянцева · Санкт-Петербург</p>
+      <p class="disclaimer">Практики носят характер личного сопровождения и не являются медицинской, психиатрической или психотерапевтической помощью, не заменяют консультацию врача и не используются для диагностики или лечения заболеваний.</p>
+    </div>
+  </footer>
+
+</main>
+
+<div class="dock" id="dock">
+  <div class="dock__in">
+    <button class="btn btn--wide" data-open="services">Записаться</button>
+  </div>
+</div>
+
+<div class="sheet" id="sheet" hidden>
+  <div class="sheet__scrim" data-close></div>
+  <div class="sheet__panel" role="dialog" aria-modal="true" aria-labelledby="sheetTitle">
+    <div class="sheet__grip" aria-hidden="true"></div>
+    <div id="sheetBody"></div>
+  </div>
+</div>
+
+<script>
+(function () {
+  "use strict";
+
+  var TELEGRAM  = "https://t.me/masharrrum";
+  var WHATSAPP  = "https://wa.me/79217810941";
+  var INSTAGRAM = "https://www.instagram.com/masharrrum";
+
+  var SERVICES = [
+    { name: "Распаковка текущей точки", price: "10 000 ₽ · 1,5–2 часа" },
+    { name: "Лила — древняя игра судьбы", price: "15 000 ₽ · одна игра до завершения" },
+    { name: "Игра-просветление «Путь к осознанию»", price: "15 000 ₽ · одна игра до завершения" },
+    { name: "Сопровождение — групповое", price: "35 000 ₽ / месяц" },
+    { name: "Сопровождение — индивидуальное", price: "50 000 ₽ / месяц" },
+    { name: "Бесплатная диагностика", price: "15 минут · онлайн" }
+  ];
+
+  var SITE = "Навстречу к себе";
+
+  function msgService(name) {
+    return "Привет! Я с сайта «" + SITE + "». Хочу записаться. Услуга: " + name;
+  }
+  var MSG_ECHO = "Привет! Я с сайта «" + SITE + "». Чувствую отклик и хочу просто написать тебе";
+  var MSG_MEET = "Привет! Я с сайта «" + SITE + "». Хочу на бесплатную диагностику";
+
+  var ICONS = {
+    tg: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M21.5 4.3 18.7 19c-.2 1-.8 1.2-1.6.8l-4.4-3.3-2.1 2c-.24.24-.44.44-.9.44l.32-4.5 8.2-7.4c.36-.32-.08-.5-.56-.18L7.6 13.02l-4.36-1.36c-.95-.3-.97-.95.2-1.4l17.04-6.57c.79-.29 1.48.18 1.02 2.6z" fill="currentColor"/></svg>',
+    wa: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5.05-1.32A10 10 0 1 0 12 2Zm0 18.1a8.1 8.1 0 0 1-4.13-1.13l-.3-.18-3 .78.8-2.92-.2-.3A8.1 8.1 0 1 1 12 20.1Zm4.5-5.9c-.25-.13-1.45-.72-1.68-.8-.22-.08-.39-.12-.55.13-.16.24-.63.79-.77.95-.14.16-.28.18-.53.06a6.6 6.6 0 0 1-3.3-2.88c-.25-.43.25-.4.71-1.32.08-.16.04-.3-.02-.42-.06-.13-.55-1.33-.76-1.82-.2-.47-.4-.4-.55-.41h-.47c-.16 0-.42.06-.64.3-.22.25-.84.83-.84 2.01 0 1.19.86 2.33.98 2.5.12.15 1.7 2.6 4.11 3.64 1.53.66 2.13.72 2.9.6.46-.06 1.45-.59 1.65-1.16.2-.57.2-1.06.14-1.16-.06-.1-.22-.16-.47-.28Z" fill="currentColor"/></svg>',
+    ig: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="1.7"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.7"/><circle cx="17.4" cy="6.6" r="1.2" fill="currentColor"/></svg>'
+  };
+
+  function channelsMarkup(text) {
+    var enc = text ? "?text=" + encodeURIComponent(text) : "";
+    var out = "";
+
+    out += '<a class="channel" href="' + TELEGRAM + enc + '" target="_blank" rel="noopener">' +
+      ICONS.tg + '<span>Telegram<span class="channel__sub">@masharrrum</span></span></a>';
+    out += '<a class="channel" href="' + WHATSAPP + enc + '" target="_blank" rel="noopener">' +
+      ICONS.wa + '<span>WhatsApp<span class="channel__sub">написать</span></span></a>';
+    out += '<a class="channel" href="' + INSTAGRAM + '" target="_blank" rel="noopener">' +
+      ICONS.ig + '<span>Instagram<span class="channel__sub">в директ — скопируй текст ниже</span></span></a>';
+
+    if (text) {
+      out += '<div class="msg-preview">' + text + '</div>';
+      out += '<button class="btn btn--ghost btn--sm" type="button" data-copy="' +
+        text.replace(/"/g, "&quot;") + '">Скопировать сообщение</button>';
+    }
+    return out;
+  }
+
+  document.getElementById("contactChannels").innerHTML = channelsMarkup(null);
+
+  /* ---------- шторка ---------- */
+
+  var sheet = document.getElementById("sheet");
+  var sheetBody = document.getElementById("sheetBody");
+  var lastFocus = null;
+
+  function openSheet(html) {
+    sheetBody.innerHTML = html;
+    sheet.hidden = false;
+    document.body.style.overflow = "hidden";
+    requestAnimationFrame(function () { sheet.classList.add("is-open"); });
+    var first = sheetBody.querySelector("button, a");
+    if (first) { first.focus({ preventScroll: true }); }
+  }
+
+  function closeSheet() {
+    sheet.classList.remove("is-open");
+    document.body.style.overflow = "";
+    window.setTimeout(function () { sheet.hidden = true; sheetBody.innerHTML = ""; }, 320);
+    if (lastFocus) { lastFocus.focus({ preventScroll: true }); }
+  }
+
+  function viewServices() {
+    var html = '<h2 class="sheet__title" id="sheetTitle">Выбери, что откликается</h2>';
+    SERVICES.forEach(function (s, i) {
+      html += '<button class="pick" type="button" data-service="' + i + '">' +
+        '<span><span class="pick__name">' + s.name + '</span>' +
+        '<span class="pick__price">' + s.price + '</span></span>' +
+        '<span class="pick__cta">Выбрать</span></button>';
+    });
+    html += '<p class="sheet__note">Если сомневаешься — выбери то, что первым откликнулось. Сердце не ошибается.</p>';
+    html += '<button class="sheet__back" type="button" data-close>← Вернуться на сайт</button>';
+    openSheet(html);
+  }
+
+  function viewMessengers(text, backToServices) {
+    var html = '<h2 class="sheet__title" id="sheetTitle">Напиши мне в удобном мессенджере</h2>';
+    html += '<div class="channels" style="margin-top:16px">' + channelsMarkup(text) + '</div>';
+    html += '<button class="sheet__back" type="button" ' +
+      (backToServices ? 'data-back-services' : 'data-close') + '>← ' +
+      (backToServices ? "К услугам" : "Вернуться на сайт") + '</button>';
+    openSheet(html);
+  }
+
+  document.addEventListener("click", function (e) {
+    var opener = e.target.closest("[data-open]");
+    if (opener) {
+      lastFocus = opener;
+      var kind = opener.getAttribute("data-open");
+      if (kind === "services") { viewServices(); }
+      if (kind === "echo") { viewMessengers(MSG_ECHO, false); }
+      if (kind === "meet") { viewMessengers(MSG_MEET, false); }
+      return;
+    }
+
+    if (e.target.closest("[data-close]")) { closeSheet(); return; }
+    if (e.target.closest("[data-back-services]")) { viewServices(); return; }
+
+    var pick = e.target.closest("[data-service]");
+    if (pick) {
+      var s = SERVICES[Number(pick.getAttribute("data-service"))];
+      viewMessengers(msgService(s.name), true);
+      return;
+    }
+
+    var copy = e.target.closest("[data-copy]");
+    if (copy && navigator.clipboard) {
+      navigator.clipboard.writeText(copy.getAttribute("data-copy")).then(function () {
+        copy.textContent = "Скопировано";
+        window.setTimeout(function () { copy.textContent = "Скопировать сообщение"; }, 1800);
+      });
+    }
+  });
+
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape" && !sheet.hidden) { closeSheet(); }
+  });
+
+  /* ---------- скролл: линия, док, шапка ---------- */
+
+  var fill = document.getElementById("pathFill");
+  var dock = document.getElementById("dock");
+  var topbar = document.getElementById("topbar");
+  var ticking = false;
+
+  function onScroll() {
+    if (ticking) { return; }
+    ticking = true;
+    requestAnimationFrame(function () {
+      var y = window.scrollY;
+      var h = document.body.scrollHeight - window.innerHeight;
+      fill.style.height = (h > 0 ? Math.min(1, y / h) * 100 : 0) + "%";
+      dock.classList.toggle("is-up", y > 620);
+      topbar.classList.toggle("is-stuck", y > 8);
+      ticking = false;
+    });
+  }
+
+  window.addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
+
+  /* ---------- мягкое появление секций ---------- */
+
+  if ("IntersectionObserver" in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        en.target.classList.toggle("is-hidden", !en.isIntersecting && en.boundingClientRect.top > 0);
+        en.target.classList.toggle("is-here", en.isIntersecting);
+      });
+    }, { rootMargin: "-10% 0px -25% 0px" });
+
+    Array.prototype.forEach.call(document.querySelectorAll(".reveal"), function (el) { io.observe(el); });
+  }
+})();
+</script>
+
+</body>
+</html>
