@@ -352,9 +352,9 @@ em { font-style: italic; font-weight: 300; }
 
 .hero { padding: 26px 0 52px; }
 
-.hero__arch { margin-bottom: 30px; }
+.hero__arch { margin-bottom: 42px; }
 
-.hero__title { margin-bottom: 14px; }
+.hero__title { margin-bottom: 12px; font-size: clamp(35px, 10.5vw, 47px); }
 
 .hero__role {
   font-family: var(--f-ui);
@@ -987,17 +987,18 @@ footer {
 .photo--sq { aspect-ratio: 1 / 1; }
 .photo--sq img { object-position: center 60%; }
 .photo--service { aspect-ratio: 1 / 1; }
-.photo--service-6 img { object-position: center 62%; }
-.photo--service-7 img { object-position: center 64%; }
-.photo--service-8 img { object-position: center 54%; }
+.photo--service-6 { aspect-ratio: 4 / 5; }
+.photo--service-6 img { object-position: center 58%; }
+.photo--service-7 img { object-position: center 36%; }
+.photo--service-8 img { object-position: center 68%; }
 .photo--service-9 img { object-position: center 50%; }
-.photo--service-10 img { object-position: center 56%; }
+.photo--service-10 img { object-position: center 67%; }
 .photo--guide { aspect-ratio: 4 / 5; }
 .photo--guide img { object-position: center top; }
 .photo--diagnostic { aspect-ratio: 16 / 10; }
 .photo--diagnostic img { object-position: center 54%; }
-.photo--p5 { aspect-ratio: 4 / 5; }
-.photo--p5 img { object-position: center 88%; }
+.photo--p5 { width: 88%; aspect-ratio: 4 / 5; margin: 0 auto; }
+.photo--p5 img { object-position: center 92%; }
 .photo--avatar { width: 124px; flex: 0 0 124px; aspect-ratio: 1 / 1; border-radius: 50%; }
 .photo--avatar img { object-position: center 42%; transform: scale(1.7); transform-origin: 50% 40%; }
 
@@ -1048,7 +1049,6 @@ footer {
     <p class="hero__role" style="margin-bottom:10px">Проводник нового времени</p>
     <p class="hero__what">Помогаю выйти из внутреннего тупика, услышать себя и вернуть опору</p>
     <div class="stack">
-      <p class="lead hero__text">Через энергопрактики, трансформационные игры и работу с состоянием мы находим корень запроса и превращаем внутренние изменения в понятные шаги.</p>
       <div class="hero-value">
         <p class="hero-value__item"><strong>С чем можно прийти</strong>Тревога, потеря опоры и ясности, повторяющиеся сценарии, сложный выбор, непонимание, куда двигаться. Когда по-старому уже не хочется, а по-новому ещё непонятно как. Когда есть ощущение: «Я живу не свою жизнь».</p>
         <p class="hero-value__item"><strong>Что будет в работе</strong>Определимся с запросом и тем, что мешает его реализовать. Выберем удобный формат работы, внедрим в жизнь практики, которые снимут сопротивление. Дальше я буду бережно сопровождать тебя к твоей новой реализации.</p>
@@ -1073,7 +1073,6 @@ footer {
 
       <div class="stack">
         <p>Когда-то я тоже зависала в тревоге, искала опору в найме, в отношениях и в быстром дофамине. Пока не случилась встреча с собой.</p>
-        <p>Сегодня я — любящий наблюдатель. Через меня проходит информация, яснознание, свет. Я не веду тебя — я иду рядом.</p>
       </div>
     </div>
   </section>
@@ -1082,7 +1081,7 @@ footer {
     <span class="node" aria-hidden="true"></span>
     <div class="quote-row">
       <div>
-        <blockquote class="band__quote">«В моей проводимости нет меня. Я являюсь лишь любящим наблюдателем, который бережно проводит тебя через чистый фильтр света, Абсолюта, соединяя тебя с высшим проявлением»</blockquote>
+        <blockquote class="band__quote">«В моей проводимости нет меня. Я являюсь лишь любящим наблюдателем, проводником яснознания, который бережно проводит тебя через чистый фильтр света Абсолюта, соединяя тебя с высшим проявлением»</blockquote>
         <p class="band__sign">Мария Румянцева</p>
       </div>
       <div class="photo photo--avatar"><img src="/photos/3.jpg" alt="Мария Румянцева"></div>
@@ -1207,7 +1206,7 @@ footer {
           <div class="svc__head">
             <div>
               <h3 class="svc__name">Распаковка текущей точки</h3>
-              <p class="svc__meta">1,5–2 часа · лично в Петербурге</p>
+              <p class="svc__meta">1,5–2 часа · онлайн</p>
             </div>
             <p class="svc__price">10 000 ₽</p>
           </div>
@@ -1239,7 +1238,7 @@ footer {
           <div class="svc__head">
             <div>
               <h3 class="svc__name">Игра-просветление «Путь к осознанию»</h3>
-              <p class="svc__meta">Одна игра до завершения · авторская · лично в Петербурге</p>
+              <p class="svc__meta">Одна игра до завершения · авторская · лично в Петербурге или онлайн</p>
             </div>
             <p class="svc__price">15 000 ₽</p>
           </div>
@@ -1255,7 +1254,7 @@ footer {
           <div class="svc__head">
             <div>
               <h3 class="svc__name">Сопровождение — групповое</h3>
-              <p class="svc__meta">Месяц · Петербург</p>
+              <p class="svc__meta">Месяц · онлайн</p>
             </div>
             <p class="svc__price">35 000 ₽</p>
           </div>
@@ -1280,7 +1279,7 @@ footer {
           <div class="svc__head">
             <div>
               <h3 class="svc__name">Сопровождение — индивидуальное</h3>
-              <p class="svc__meta">Месяц · Петербург</p>
+              <p class="svc__meta">Месяц · онлайн</p>
             </div>
             <p class="svc__price">50 000 ₽</p>
           </div>
@@ -1407,7 +1406,7 @@ footer {
     <div class="stack-l">
       <div class="stack">
         <p class="eyebrow">Контакты</p>
-        <h2>Если внутри отозвалось — значит, пришло время для разговора</h2>
+        <h2>Если внутри отозвалось — значит, пришло время для контакта</h2>
         <p class="soft">Напиши мне в удобном мессенджере. Отвечаю я сама — не ассистент и не бот.</p>
       </div>
 
