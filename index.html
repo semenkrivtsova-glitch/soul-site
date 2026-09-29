@@ -525,15 +525,17 @@ em { font-style: italic; font-weight: 300; }
 .svc { display: flex; flex-direction: column; gap: 14px; }
 
 .svc__head {
-  display: flex;
-  gap: 14px;
-  align-items: baseline;
-  justify-content: space-between;
+  display: grid;
+  gap: 4px;
+  align-items: start;
 }
 
-.svc__name { font-size: 21px; line-height: 1.25; }
+.svc__head > div { display: contents; }
+
+.svc__name { order: 1; font-size: 21px; line-height: 1.25; }
 
 .svc__price {
+  order: 2;
   font-family: var(--f-ui);
   font-size: 13.5px;
   font-weight: 600;
@@ -542,10 +544,11 @@ em { font-style: italic; font-weight: 300; }
 }
 
 .svc__meta {
+  order: 3;
   font-family: var(--f-ui);
   font-size: 12px;
   color: var(--ink-faint);
-  margin-top: 3px;
+  margin: 0;
 }
 
 .svc__short { color: var(--ink-soft); }
