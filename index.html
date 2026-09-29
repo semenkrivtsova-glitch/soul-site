@@ -443,6 +443,31 @@ em { font-style: italic; font-weight: 300; }
   max-width: 30em;
 }
 
+.hero-value {
+  display: grid;
+  gap: 10px;
+  margin: 4px 0 8px;
+}
+
+.hero-value__item {
+  padding: 13px 15px;
+  background: var(--surface);
+  border-left: 2px solid var(--accent);
+  font-size: 15.5px;
+  line-height: 1.5;
+}
+
+.hero-value__item strong {
+  display: block;
+  margin-bottom: 2px;
+  font-family: var(--f-ui);
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
 /* ---------- три изменения ---------- */
 
 .shift { display: flex; flex-direction: column; gap: 7px; }
@@ -701,6 +726,27 @@ em { font-style: italic; font-weight: 300; }
   font-size: 12px;
   color: var(--ink-faint);
 }
+
+.review-links { display: grid; gap: 12px; }
+
+.review-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--surface);
+  color: var(--ink);
+  text-decoration: none;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.review-link:hover { border-color: var(--accent); transform: translateY(-1px); }
+.review-link__name { font-family: var(--f-ui); font-size: 15px; font-weight: 600; }
+.review-link__note { display: block; margin-top: 3px; font-size: 14px; color: var(--ink-soft); }
+.review-link__arrow { color: var(--accent); font-size: 22px; }
 
 /* ---------- контакты ---------- */
 
@@ -990,9 +1036,14 @@ footer {
     <div class="photo photo--oval hero__arch"><img src="/photos/1.jpg" alt="Мария Румянцева"></div>
     <h1 class="hero__title">Навстречу<br>к себе</h1>
     <p class="hero__role" style="margin-bottom:10px">Проводник нового времени</p>
-    <p class="hero__what">Энергопрактики, трансформационные игры, работа с состоянием — через тело, ум и дух</p>
+    <p class="hero__what">Помогаю выйти из внутреннего тупика, услышать себя и вернуть опору</p>
     <div class="stack">
-      <p class="lead hero__text">Ты в правильном месте, если чувствуешь, что внутри зреет что-то важное. Если устала искать ответы снаружи и хочешь вернуться к себе. Если готова к переменам — не через борьбу, а через доверие.</p>
+      <p class="lead hero__text">Через энергопрактики, трансформационные игры и работу с состоянием мы находим корень запроса и превращаем внутренние изменения в понятные шаги.</p>
+      <div class="hero-value">
+        <p class="hero-value__item"><strong>С чем можно прийти</strong>Тревога, потеря опоры, повторяющиеся сценарии, сложный выбор или ощущение «я живу не свою жизнь».</p>
+        <p class="hero-value__item"><strong>Что будет в работе</strong>Увидим, что мешает двигаться, вернём контакт с телом и чувствами, найдём твой следующий шаг.</p>
+        <p class="hero-value__item"><strong>С чем ты уйдёшь</strong>С ясностью, внутренней опорой и пониманием, что делать дальше именно тебе.</p>
+      </div>
       <div class="btn-row">
         <button class="btn btn--ghost" data-open="echo">Чувствую отклик</button>
         <button class="btn" data-open="services">Записаться</button>
@@ -1008,18 +1059,12 @@ footer {
         <h2>Я перестала искать тепло снаружи. Я стала им</h2>
       </div>
 
-      <div class="variants"><div class="photo photo--about"><img src="/photos/2-avatar.png" alt="Мария Румянцева"></div></div>
+      <div class="variants"><div class="photo photo--about"><img src="/photos/2-portrait.jpg" alt="Мария Румянцева"></div></div>
 
       <div class="stack">
-        <p>Когда-то я тоже зависала в тревоге, искала опору в найме, в отношениях, в веществах. Пока не случилась встреча с собой.</p>
+        <p>Когда-то я тоже зависала в тревоге, искала опору в найме, в отношениях и в быстром дофамине. Пока не случилась встреча с собой.</p>
         <p>Сегодня я — любящий наблюдатель. Через меня проходит информация, яснознание, свет. Я не веду тебя — я иду рядом.</p>
-        <p>В моей проводимости нет меня. Есть только безусловная любовь и свет, которые я пропускаю насквозь.</p>
-      </div>
-
-      <div class="facts">
-        <div><p class="fact__n">7 лет</p><p class="fact__l">в практиках</p></div>
-        <div><p class="fact__n">100+</p><p class="fact__l">проведённых трансформационных игр</p></div>
-        <p class="facts__edu">Проводник Лилы — обучалась у Валерии Тогоревой. Прошла курс «Проводники нового времени» Анны Magic Soul. Учусь в Московском институте психоанализа.</p>
+        <p>В моей проводимости нет меня. Я являюсь лишь любящим наблюдателем, который бережно проводит вас через чистый фильтр света, Абсолюта, соединяя вас с высшим проявлением.</p>
       </div>
     </div>
   </section>
@@ -1028,7 +1073,7 @@ footer {
     <span class="node" aria-hidden="true"></span>
     <div class="quote-row">
       <div>
-        <blockquote class="band__quote">«В моей проводимости нет меня. Я лишь перевожу это через чистый фильтр любви и света»</blockquote>
+        <blockquote class="band__quote">«В моей проводимости нет меня. Я являюсь лишь любящим наблюдателем, который бережно проводит вас через чистый фильтр света, Абсолюта, соединяя вас с высшим проявлением»</blockquote>
         <p class="band__sign">Мария Румянцева</p>
       </div>
       <div class="photo photo--avatar"><img src="/photos/3.jpg" alt="Мария Румянцева"></div>
@@ -1110,17 +1155,17 @@ footer {
 
       <div class="shift">
         <p class="shift__label">Внутри</p>
-        <p>Рождается непоколебимая любовь, которая ни от чего не зависит. Уходят страхи, осуждение, даже страх смерти и одиночества. Приходит доверие к жизни. И тишина перестаёт пугать — она становится домом.</p>
+        <p>Станет тише внутри: появятся доверие к себе, ясность и опора, которая не зависит от людей и обстоятельств.</p>
       </div>
 
       <div class="shift">
         <p class="shift__label">В теле</p>
-        <p>Уходит напряжение. Ты начинаешь слышать себя: когда отдохнуть, что поесть. Исчезает потребность «заедать» или «запивать» стресс.</p>
+        <p>Ты начнёшь замечать сигналы тела, вовремя отдыхать и проживать эмоции без подавления и быстрого дофамина.</p>
       </div>
 
       <div class="shift">
         <p class="shift__label">В реальности</p>
-        <p>Мир начинает откликаться иначе. Конфликты уходят, приходят новые люди и возможности. Появляется смелость проявляться — в соцсетях, в разговорах, в выборе. Приходит импульс к реальным действиям — не «надо» и не «для галочки», а тем, от которых душа радуется.</p>
+        <p>Появится смелость выбирать себя, проявляться и действовать не из «надо», а из понимания своего пути.</p>
       </div>
     </div>
   </section>
@@ -1130,10 +1175,23 @@ footer {
     <div class="stack-l">
       <div class="stack">
         <p class="eyebrow">Услуги</p>
-        <h2>Выбирай то, что откликается</h2>
+        <h2>Не знаешь, что выбрать? Начни с диагностики</h2>
+        <p class="soft">За 15 минут мы уточним твой запрос и поймём, какой формат поможет именно сейчас.</p>
       </div>
 
       <div class="services">
+
+        <article class="svc">
+          <div class="svc__head">
+            <div>
+              <h3 class="svc__name">Бесплатная диагностика</h3>
+              <p class="svc__meta">15 минут · онлайн</p>
+            </div>
+            <p class="svc__price">Бесплатно</p>
+          </div>
+          <p class="svc__short">Коротко разберём твою ситуацию, сформулируем запрос и выберем подходящий следующий шаг.</p>
+          <button class="btn btn--wide" data-open="meet">Начать с диагностики</button>
+        </article>
 
         <article class="svc">
           <div class="ph ph--sq"><span class="ph__n">6</span><span class="ph__t">Фото · распаковка</span></div>
@@ -1147,7 +1205,7 @@ footer {
           <p class="svc__short">Встреча, которая снимает туман.</p>
           <details>
             <summary><span class="chev" aria-hidden="true"></span>Раскрыть пространство</summary>
-            <p class="svc__full">Смотрим, где ты сейчас, почему топчешься на месте и куда тебе идти. Без воды. Без «копания» в прошлом. Только точка здесь и сейчас. Я отражаю то, что вижу, и даю вектор. Ты уходишь с ясностью.</p>
+            <p class="svc__full">Определим, где ты сейчас, что удерживает на месте и куда двигаться. Ты уйдёшь с ясностью и конкретным вектором.</p>
           </details>
         </article>
 
@@ -1163,7 +1221,7 @@ footer {
           <p class="svc__short">Зеркало твоих сценариев.</p>
           <details>
             <summary><span class="chev" aria-hidden="true"></span>Раскрыть пространство</summary>
-            <p class="svc__full">Ты входишь с запросом. Игра становится зеркалом, показывая повторяющиеся сценарии, блоки и зажимы. Если ты не в ресурсе — игра не пустит. Она честна и глубока. Помогает понять, почему одно и то же повторяется в твоей жизни, и даёт направление, куда двигаться дальше.</p>
+            <p class="svc__full">Игра показывает повторяющиеся сценарии и внутренние блоки. Ты поймёшь, почему ситуация повторяется и куда двигаться дальше.</p>
           </details>
         </article>
 
@@ -1179,7 +1237,7 @@ footer {
           <p class="svc__short">Путешествие от тьмы к свету, от ума к сердцу.</p>
           <details>
             <summary><span class="chev" aria-hidden="true"></span>Раскрыть пространство</summary>
-            <p class="svc__full">Путь из семи шагов: от входа в тишину — к истинному запросу сердца и освобождению от страхов и блоков. Новое состояние закрепляется, и ты создаёшь личный якорь новой версии себя. Это глубокая, живая трансформация.</p>
+            <p class="svc__full">Семь шагов от тишины к истинному запросу сердца. Освободимся от мешающих страхов и закрепим новое состояние.</p>
           </details>
         </article>
 
@@ -1196,12 +1254,12 @@ footer {
           <details>
             <summary><span class="chev" aria-hidden="true"></span>Раскрыть пространство</summary>
             <div class="svc__full">
-              <p>Созвоны раз в неделю. Общий чат с участниками. Ты можешь написать в любой момент, когда сбиваешься — я отвечаю голосовым сообщением или текстом. Также я записываю подкасты и отвечаю на общие вопросы группы. Это поле поддержки, где ты не одна на своём пути.</p>
+              <p>Еженедельные созвоны, общий чат, ответы на вопросы и поддержка между встречами. Пространство, в котором ты не остаёшься одна со своими изменениями.</p>
               <div class="method">
                 <p class="method__t">В сопровождении работаем с методом «Точка выбора»</p>
                 <p class="method__s">Как перестать жить на автомате и вернуть себе управление состоянием</p>
                 <p class="chain"><span>событие</span><span>мысль</span><span>эмоция</span><span>напряжение в теле</span><span>импульс</span><span>действие</span></p>
-                <p>Ты учишься замечать момент, когда внешний мир и собственные мысли начинают управлять твоим состоянием, — возвращаться в себя и выбирать реакцию вместо автоматического действия. Инструмент — простой дневник из шести вопросов: что произошло, что я подумала, что почувствовала, где это в теле, что захотелось сделать и сделала ли я это на автомате.</p>
+                <p>Ты научишься замечать автоматические реакции, возвращаться к себе и осознанно выбирать действие.</p>
               </div>
               <span class="gift">В подарок — моя авторская медитация</span>
             </div>
@@ -1221,15 +1279,30 @@ footer {
           <details>
             <summary><span class="chev" aria-hidden="true"></span>Раскрыть пространство</summary>
             <div class="svc__full">
-              <p>Личные созвоны раз в неделю. Поддержка в чате семь дней в неделю — пишешь в любой момент, я отвечаю. Индивидуальные техники, медитации, работа с состоянием под твой запрос. Это максимальная глубина и внимание к твоему пути.</p>
+              <p>Личные созвоны раз в неделю, поддержка в чате, индивидуальные техники и медитации под твой запрос.</p>
               <div class="method">
                 <p class="method__t">В сопровождении работаем с методом «Точка выбора»</p>
                 <p class="method__s">Как перестать жить на автомате и вернуть себе управление состоянием</p>
                 <p class="chain"><span>событие</span><span>мысль</span><span>эмоция</span><span>напряжение в теле</span><span>импульс</span><span>действие</span></p>
-                <p>Ты учишься замечать момент, когда внешний мир и собственные мысли начинают управлять твоим состоянием, — возвращаться в себя и выбирать реакцию вместо автоматического действия. Инструмент — простой дневник из шести вопросов: что произошло, что я подумала, что почувствовала, где это в теле, что захотелось сделать и сделала ли я это на автомате.</p>
+                <p>Ты научишься замечать автоматические реакции, возвращаться к себе и осознанно выбирать действие.</p>
               </div>
               <span class="gift">В подарок — моя авторская медитация</span>
             </div>
+          </details>
+        </article>
+
+        <article class="svc">
+          <div class="svc__head">
+            <div>
+              <h3 class="svc__name">Экстатический сакральный танец</h3>
+              <p class="svc__meta">60–90 минут · онлайн или лично в Санкт-Петербурге</p>
+            </div>
+            <p class="svc__price">7 000 ₽</p>
+          </div>
+          <p class="svc__short">Возвращение в тело, живость и женскую силу через движение.</p>
+          <details>
+            <summary><span class="chev" aria-hidden="true"></span>Раскрыть пространство</summary>
+            <p class="svc__full">Практика помогает прожить эмоции и блоки, заземлиться, гармонизировать энергию и соединиться со своей женской сутью. На уровне тела ты снова вспомнишь, каково это — чувствовать себя живой и сексуальной, пробудишь первозданную дикость и женскую силу.</p>
           </details>
         </article>
 
@@ -1245,7 +1318,7 @@ footer {
           <p class="svc__short">Твой личный спутник на пути к себе.</p>
           <details>
             <summary><span class="chev" aria-hidden="true"></span>Раскрыть пространство</summary>
-            <p class="svc__full">Практическое руководство с простыми, но глубокими упражнениями для восстановления контакта с телом, чувствами и внутренним голосом. Ты получаешь его в подарок при выборе любой платной услуги.</p>
+            <p class="svc__full">Практические упражнения для контакта с телом, чувствами и внутренним голосом. Гайд входит в любую платную услугу.</p>
           </details>
         </article>
 
@@ -1263,19 +1336,19 @@ footer {
       <div class="stack">
         <p class="eyebrow">Диагностика</p>
         <h2>Первый шаг — бесплатная диагностика</h2>
-        <p class="soft">Прежде чем мы начнём полноценную работу, я предлагаю встретиться в пространстве тишины и внимания.</p>
+        <p class="soft">Если сложно выбрать услугу, начни с короткого знакомства.</p>
       </div>
 
       <div class="ph ph--wide"><span class="ph__n">12</span><span class="ph__t">Фото · горизонтальное</span></div>
 
       <div class="shift">
         <p class="shift__label">Что это</p>
-        <p class="soft">15-минутная онлайн-диагностика, где я посмотрю на твою текущую точку. Без решений. Без техник. Просто увижу тебя и отражу то, что вижу.</p>
+        <p class="soft">За 15 минут мы уточним твой запрос и посмотрим на твою текущую точку.</p>
       </div>
 
       <div class="shift">
         <p class="shift__label">Зачем</p>
-        <p class="soft">Чтобы ты поняла: подходит ли тебе моя энергия, резонируем ли мы. Чтобы я поняла: могу ли я тебе помочь.</p>
+        <p class="soft">Ты поймёшь, подходит ли тебе моя работа, а я предложу наиболее полезный формат или честно скажу, если не смогу помочь.</p>
       </div>
 
       <p><em>Это бесплатно. Это честно. Это по сердцу.</em></p>
@@ -1286,30 +1359,36 @@ footer {
     </div>
   </section>
 
+  <section class="reveal">
+    <span class="node" aria-hidden="true"></span>
+    <div class="stack-l">
+      <p class="eyebrow">Опыт</p>
+      <div class="facts">
+        <div><p class="fact__n">7 лет</p><p class="fact__l">в практиках</p></div>
+        <div><p class="fact__n">100+</p><p class="fact__l">проведённых трансформационных игр</p></div>
+        <p class="facts__edu">Проводник Лилы — обучалась у Валерии Тогоревой. Прошла курс «Проводники нового времени» Анны Magic Soul. Учусь в Московском институте психоанализа.</p>
+      </div>
+    </div>
+  </section>
+
   <section id="reviews" class="reveal">
     <span class="node" aria-hidden="true"></span>
     <div class="stack-l">
       <div class="stack">
         <p class="eyebrow">Отзывы</p>
-        <h2>Что говорят те, кто уже прошёл</h2>
+        <h2>Живые истории и впечатления</h2>
+        <p class="soft">Отзывы собраны в Telegram-канале и актуальном Instagram.</p>
       </div>
 
-      <div class="reviews">
-        <div class="review">
-          <div class="ph ph--shot"><span class="ph__n">13</span><span class="ph__t">Скриншот отзыва</span></div>
-          <p class="review__text">Здесь будет текст отзыва — пара живых фраз из переписки, как есть, без причёсывания.</p>
-          <p class="review__who">Имя · услуга</p>
-        </div>
-        <div class="review">
-          <div class="ph ph--shot"><span class="ph__n">14</span><span class="ph__t">Скриншот отзыва</span></div>
-          <p class="review__text">Здесь будет текст отзыва.</p>
-          <p class="review__who">Имя · услуга</p>
-        </div>
-        <div class="review">
-          <div class="ph ph--shot"><span class="ph__n">15</span><span class="ph__t">Скриншот отзыва</span></div>
-          <p class="review__text">Здесь будет текст отзыва.</p>
-          <p class="review__who">Имя · услуга</p>
-        </div>
+      <div class="review-links">
+        <a class="review-link" href="https://t.me/soulmindphisics" target="_blank" rel="noopener">
+          <span><span class="review-link__name">Отзывы в Telegram</span><span class="review-link__note">Открыть канал с отзывами</span></span>
+          <span class="review-link__arrow" aria-hidden="true">↗</span>
+        </a>
+        <a class="review-link" href="https://www.instagram.com/s/aGlnaGxpZ2h0OjE4MDgzMDA3NzA0NDc3MzUz?stkn=NmdqZWxycnBta3Jm" target="_blank" rel="noopener">
+          <span><span class="review-link__name">Отзывы в Instagram</span><span class="review-link__note">Открыть актуальное с отзывами</span></span>
+          <span class="review-link__arrow" aria-hidden="true">↗</span>
+        </a>
       </div>
     </div>
   </section>
@@ -1365,12 +1444,13 @@ footer {
   var INSTAGRAM = "https://www.instagram.com/masharrrum";
 
   var SERVICES = [
+    { name: "Бесплатная диагностика", price: "15 минут · онлайн" },
     { name: "Распаковка текущей точки", price: "10 000 ₽ · 1,5–2 часа" },
     { name: "Лила — древняя игра судьбы", price: "15 000 ₽ · одна игра до завершения" },
     { name: "Игра-просветление «Путь к осознанию»", price: "15 000 ₽ · одна игра до завершения" },
     { name: "Сопровождение — групповое", price: "35 000 ₽ / месяц" },
     { name: "Сопровождение — индивидуальное", price: "50 000 ₽ / месяц" },
-    { name: "Бесплатная диагностика", price: "15 минут · онлайн" }
+    { name: "Экстатический сакральный танец", price: "7 000 ₽ · 60–90 минут" }
   ];
 
   var SITE = "Навстречу к себе";
