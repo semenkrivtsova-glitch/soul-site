@@ -468,6 +468,43 @@ em { font-style: italic; font-weight: 300; }
   color: var(--accent);
 }
 
+.hero-result { margin-top: 10px; }
+
+.hero-result summary {
+  list-style: none;
+  cursor: pointer;
+  font-family: var(--f-ui);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--accent);
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.hero-result summary::-webkit-details-marker { display: none; }
+
+.hero-result .chev {
+  width: 8px;
+  height: 8px;
+  border-right: 1.4px solid currentColor;
+  border-bottom: 1.4px solid currentColor;
+  transform: rotate(45deg) translate(-1px, -1px);
+  transition: transform 0.3s ease;
+}
+
+.hero-result[open] .chev { transform: rotate(-135deg) translate(-2px, -2px); }
+
+.hero-result__body {
+  display: grid;
+  gap: 14px;
+  margin-top: 13px;
+  padding-top: 13px;
+  border-top: 1px solid var(--line-soft);
+}
+
+.hero-result__body .shift { gap: 3px; }
+
 /* ---------- три изменения ---------- */
 
 .shift { display: flex; flex-direction: column; gap: 7px; }
@@ -1050,9 +1087,27 @@ footer {
     <p class="hero__what">Помогаю выйти из внутреннего тупика, услышать себя и вернуть опору</p>
     <div class="stack">
       <div class="hero-value">
-        <p class="hero-value__item"><strong>С чем можно прийти</strong>Тревога, потеря опоры и ясности, повторяющиеся сценарии, сложный выбор, непонимание, куда двигаться. Когда по-старому уже не хочется, а по-новому ещё непонятно как. Когда есть ощущение: «Я живу не свою жизнь».</p>
-        <p class="hero-value__item"><strong>Что будет в работе</strong>Определимся с запросом и тем, что мешает его реализовать. Выберем удобный формат работы, внедрим в жизнь практики, которые снимут сопротивление. Дальше я буду бережно сопровождать тебя к твоей новой реализации.</p>
-        <p class="hero-value__item"><strong>С чем ты уйдёшь</strong>С внутренней опорой, состоянием целостности, самоценностью и контактом «ум — тело — дух». С ясным пониманием, что делать дальше, и энергией на создание желаемой реальности.</p>
+        <div class="hero-value__item"><strong>С чем можно прийти</strong>Тревога, потеря опоры и ясности, повторяющиеся сценарии, сложный выбор, непонимание, куда двигаться. Когда по-старому уже не хочется, а по-новому ещё непонятно как. Когда есть ощущение: «Я живу не свою жизнь».</div>
+        <div class="hero-value__item"><strong>Что будет в работе</strong>Определимся с запросом и тем, что мешает его реализовать. Выберем удобный формат работы, внедрим в жизнь практики, которые снимут сопротивление. Дальше я буду бережно сопровождать тебя к твоей новой реализации.</div>
+        <div class="hero-value__item"><strong>С чем ты уйдёшь</strong>С внутренней опорой, состоянием целостности, самоценностью и контактом «ум — тело — дух». С ясным пониманием, что делать дальше, и энергией на создание желаемой реальности.
+          <details class="hero-result">
+            <summary><span class="chev" aria-hidden="true"></span>Подробнее о переменах</summary>
+            <div class="hero-result__body">
+              <div class="shift">
+                <p class="shift__label">Внутри</p>
+                <p>Станет тише внутри. Появится доверие к себе, которое не зависит от людей и обстоятельств.</p>
+              </div>
+              <div class="shift">
+                <p class="shift__label">В теле</p>
+                <p>Ты начнёшь замечать сигналы тела, вовремя отдыхать и проживать эмоции без подавления и быстрого дофамина.</p>
+              </div>
+              <div class="shift">
+                <p class="shift__label">В реальности</p>
+                <p>Появится смелость выбирать себя, проявляться и действовать не из «надо», а из понимания себя и своего пути.</p>
+              </div>
+            </div>
+          </details>
+        </div>
       </div>
       <div class="btn-row">
         <button class="btn btn--ghost" data-open="echo">Чувствую отклик</button>
@@ -1153,28 +1208,6 @@ footer {
         <p>Так трансформируется мышление, энергия, тело и вся жизнь.</p>
       </div>
       <div class="photo photo--p5"><img src="/photos/5.jpg" alt="Мария Румянцева"></div>
-    </div>
-  </section>
-
-  <section class="reveal">
-    <span class="node" aria-hidden="true"></span>
-    <div class="stack-l">
-      <p class="eyebrow">Что изменится</p>
-
-      <div class="shift">
-        <p class="shift__label">Внутри</p>
-        <p>Станет тише внутри: появятся доверие к себе, ясность и опора, которая не зависит от людей и обстоятельств.</p>
-      </div>
-
-      <div class="shift">
-        <p class="shift__label">В теле</p>
-        <p>Ты начнёшь замечать сигналы тела, вовремя отдыхать и проживать эмоции без подавления и быстрого дофамина.</p>
-      </div>
-
-      <div class="shift">
-        <p class="shift__label">В реальности</p>
-        <p>Появится смелость выбирать себя, проявляться и действовать не из «надо», а из понимания своего пути.</p>
-      </div>
     </div>
   </section>
 
